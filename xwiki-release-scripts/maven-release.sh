@@ -318,7 +318,8 @@ function pre_update_versions() {
   pre_update_parent_versions
   pre_update_packages_versions
   git add pom.xml
-  git add xwiki-platform-core/xwiki-platform-node/
+  ## We need to be selective otherwise other files such as pom.xml.releaseBackup are also included
+  git add '**/package.json'
   git commit -m "[release] Preparing release ${TAG_NAME}" -q
 }
 
